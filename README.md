@@ -1,49 +1,78 @@
-# 🏋️ Gym Membership Record System (C Programming)
+# Gym Membership Management System
 
-This project is a **Semester 1 group project** developed using the C programming language.  
-It demonstrates the use of **structures, file handling, conditional logic, and string comparison** to manage gym member records stored in a file.
+A suite of C programs designed to manage gym membership records through persistent file storage. This project demonstrates fundamental concepts of data structures and file handling in the C programming language.
 
-The system simulates a basic gym database that allows storing, reading, and analyzing member information such as age, plan type, premium status, and joining date.
+## Overview
 
-🔗 Live demo concept inspiration: https://records-of-gym.lovable.app (The records can be added as temporary for easiness of developers to test it in future.)
+The system comprises three specialized modules that collectively manage the complete lifecycle of gym membership records, from data entry to retrieval and filtering.
 
----
+## Project Architecture
 
-## 📌 Project Objectives
+The system is organized into three distinct modules:
 
-The main goal of this project is to practice:
+### 1. Data Entry & Storage (`Recordss.c`)
 
-- File handling in C (`fopen`, `fprintf`, `fscanf`)
-- Structure-based data storage
-- Searching and filtering records
-- Working in a team using modular responsibilities
+Serves as the primary input interface for the system.
 
----
+- **Structural Organization**: Utilizes nested structures to store complex data including member names, join dates, and membership details.
+- **Dynamic Fee Calculation**: Implements logic-based fee generation based on premium status (₹1500 for premium, ₹500 for standard).
+- **File Output**: Writes formatted data to `members.txt` for persistent storage.
 
-## 🧾 Data Stored Per Member
+### 2. Formatted Data Retrieval (`RecordsRead.c`)
 
-Each gym member record includes:
+Provides a specialized viewer for transforming raw file data into human-readable format.
 
-- Member ID
-- Name
-- Age
-- Gender
-- Plan Type (Weekly / Monthly / Yearly)
-- Premium Status (0 = No, 1 = Yes)
-- Join Date (Day, Month, Year)
+- **Clean Formatting**: Employs field-width specifiers (e.g., `%-10s`) to ensure proper column alignment in terminal output.
+- **Header Logic**: Intelligently skips metadata and header lines to process only relevant member entries.
 
-This data is stored in a file and accessed using file handling operations.
+### 3. Categorical Filtering (`Category.c`)
 
----
+Offers search and export functionality for organizing members by subscription type.
 
-## ⚙️ Features Implemented
+- **Interactive Filtering**: Enables user input for specific plans (Weekly, Monthly, or Yearly) to isolate records.
+- **Dual Output**: Displays filtered results in the terminal and generates a secondary report file (`planType.txt`).
+- **Data Parsing**: Uses `sscanf` and `strcmp` for accurate parsing of string-based data from storage files.
 
-The program supports the following operations:
+## Technical Implementation
 
-1. Display all members
-2. Find oldest and youngest member
-3. Show premium members
-4. Show members who joined after a specific date
-5. Count members by subscription plan
+This project implements several advanced C programming techniques:
 
----
+- **Nested Structures**: Groups related data types to model real-world objects effectively.
+- **File Stream Handling**: Manages multiple file pointers for concurrent reading and writing operations.
+- **String Logic**: Implements string comparison and formatted buffer reading.
+- **Formatted I/O**: Provides precise control over terminal and file output alignment.
+
+## Getting Started
+
+### Prerequisites
+
+- C compiler (e.g., GCC, Clang)
+- Standard C libraries (`stdio.h`, `string.h`)
+
+### Installation and Execution
+
+1. **Initialize Records**:
+   ```bash
+   gcc Recordss.c -o records
+   ./records
+   ```
+
+2. **View All Members**:
+   ```bash
+   gcc RecordsRead.c -o read
+   ./read
+   ```
+
+3. **Filter by Plan**:
+   ```bash
+   gcc Category.c -o filter
+   ./filter
+   ```
+
+## File Structure
+
+- `Recordss.c`: Source code for member data entry and storage
+- `RecordsRead.c`: Source code for displaying member records in tabular format
+- `Category.c`: Source code for filtering and reporting by subscription type
+- `members.txt`: Primary database file containing all member records
+- `planType.txt`: Filtered report file generated during category searches
