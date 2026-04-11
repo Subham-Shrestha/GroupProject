@@ -1,0 +1,14 @@
+Filtered Members (Monthly Plan)
+ID   Name                Age   Gender   Plan      Fee
+------------------------------------------------------------
+1    Aashutosh Adhikari   20    M       Monthly   1500 
+2    Abhiskek Magar       21    M       Monthly   500  
+5    Ankit Adhikari       20    M       Monthly   1500 
+7    Bikash Thapa         23    M       Monthly   1500 
+8    Kabir Kathayat       20    M       Monthly   500  
+11   Kumari Hema          21    F       Monthly   1500 
+13   Moon Tandukar        22    M       Monthly   1500 
+17   Samik Chauguthi      22    M       Monthly   1500 
+19   Shalinya Gautam      19    M       Monthly   1500 
+21   Sonish Manandhar     22    M       Monthly   1500 
+23   Surakshya Poudel     20    F       Monthly   1500 
