@@ -85,9 +85,7 @@ int main()
             &m[i].joinDate.year,
             &m[i].joinDate.month,
             &m[i].joinDate.day);
-
         int fee = getFee(m[i].premium);
-
         // Write to file
         fprintf(fp, "%d\t%s %s\t%d\t%c\t%s\t%d\n",
                 m[i].id,
@@ -97,13 +95,9 @@ int main()
                 m[i].gender,
                 m[i].plan,
                 fee);
-
         printf("Saved! Fee = Rs. %d\n", fee);
     }
-
     fclose(fp);
-
     printf("\nAll data saved in members.txt\n");
-
     return 0;
 }
