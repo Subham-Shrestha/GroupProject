@@ -1,58 +1,39 @@
-#include<stdio.h>
-struct Member
+#include <stdio.h>
+
+int main()
 {
-    int memberID; // Primary key as unique identifier
-    char name[50];
-    int age;
-    char gender;
-    char planType[10];  // "Weekly", "Monthly", or "Yearly"
-    int premiumStatus,  // 1 for Premium, 0 for Basic
-        joinDate_year,  // Use separate fields for simpler comparison
-        joinDate_month, // Use to separate fields
-        joinDate_day;   // Use to separate fields
-};
-int main(){
-    struct Member member[24];
     FILE *fp;
-    int i;
-    /* Read from file */
+
     fp = fopen("members.txt", "r");
 
     if (fp == NULL)
     {
-        printf("File cannot be opened!");
+        printf("Error: Cannot open file!\n");
         return 1;
     }
 
-        printf("\n Member Records from File \n");
+    int id, age, fee;
+    char first[20], last[20], plan[10], gen;
+    char line[200];
 
-        for (i = 0; i < 24; i++)
-        {
+    printf("\n--- Members Data (Clean Format) ---\n\n");
 
-            fscanf(fp, "%d\t%s\t%d\t%c\t%s\t%d\t%d\t%d\t%d",
-                &member[i].memberID,
-                member[i].name,
-                &member[i].age,
-                &member[i].gender,
-                member[i].planType,
-                &member[i].premiumStatus,
-                &member[i].joinDate_year,
-                &member[i].joinDate_month,
-                &member[i].joinDate_day);
+    // Skip first 2 lines (header + dashed line)
+    fgets(line, sizeof(line), fp);
+    fgets(line, sizeof(line), fp);
 
-            printf("\nMember %d\n", i + 1);
-            printf("ID: %d\n", member[i].memberID);
-            printf("Name: %s\n", member[i].name);
-            printf("Age: %d\n", member[i].age);
-            printf("Gender: %c\n", member[i].gender);
-            printf("Plan: %s\n", member[i].planType);
-            printf("Premium: %d\n", member[i].premiumStatus);
-            printf("Join Date: %d-%d-%d\n",
-                member[i].joinDate_year,
-                member[i].joinDate_month,
-                member[i].joinDate_day);
-        }
+    // Print clean header. 
+    printf("%-3s %-10s %-10s %-3s %-3s %-10s %-5s\n", "ID", "First", "Last", "Age", "Gen", "Plan", "Fee"); //The numbers are written so that there will be fixed spacing between the columns for better reading of the file.
+    // Note : The numbers in spacing were given to match the space evenly to make the output seem clean. 
+    printf("----------------------------------------------------\n");
 
-        fclose(fp);
-        return 0;
+    // Read actual data
+    while (fscanf(fp, "%d %s %s %d %c %s %d", &id, first, last, &age, &gen, plan, &fee) != EOF)
+    {
+        printf("%-3d %-10s %-10s %-3d %-3c %-10s %-5d\n", id, first, last, age, gen, plan, fee);
+    }
+
+    fclose(fp);
+
+    return 0;
 }

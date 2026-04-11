@@ -1,110 +1,109 @@
 #include <stdio.h>
-#include <string.h>
 
-// Nested Structure 1: Name details
-struct FullName {
-    char firstName[20];
-    char middleName[20];
-    char lastName[20];
+// Structure for Name
+struct Name
+{
+    char first[20];
+    char last[20];
 };
 
-// Nested Structure 2: Date details
-struct JoinDate {
+// Structure for Date
+struct Date
+{
     int year, month, day;
 };
 
 // Main Structure
-struct Member {
-    int memberID;
-    struct FullName name;
+struct Member
+{
+    int id;
+    struct Name name;
     int age;
     char gender;
-    char planType[10];
-    int premiumStatus;
-    struct JoinDate date;
+    char plan[10];
+    int premium; // 1 = yes, 0 = no
+    struct Date joinDate;
 };
 
-// Function Prototypes
-void inputMemberData(struct Member *m);
-int calculatePrice(int premiumStatus);
-void saveMemberToFile(FILE *fp, struct Member m, int price);
+// Function to calculate fee
+int getFee(int premium)
+{
+    if (premium == 1)
+        return 1500;
+    else
+        return 500;
+}
 
-int main() {
+int main()
+{
     int n, i;
 
-    printf("Enter the number of members to register: ");
-    if (scanf("%d", &n) != 1) return 1;
+    printf("Enter number of members: ");
+    scanf("%d", &n);
 
-    struct Member members[n];
-    FILE *fp = fopen("newMembers.txt", "w");
+    struct Member m[n];
 
-    if (fp == NULL) {
-        printf("Error: Could not open file for writing.\n");
+    FILE *fp;
+    fp = fopen("members.txt", "w");
+
+    if (fp == NULL)
+    {
+        printf("File error!\n");
         return 1;
     }
 
-    // Write a Header to the file for better readability
-    fprintf(fp, "ID\tName\t\t\tAge\tGen\tPlan\tPrem\tDate\t\tFee\n");
-    fprintf(fp, "--------------------------------------------------------------------------------\n");
+    fprintf(fp, "ID\tName\t\tAge\tGen\tPlan\tFee\n");
+    fprintf(fp, "-------------------------------------------\n");
 
-    for (i = 0; i < n; i++) {
-        printf("\n--- Entry for Member %d ---\n", i + 1);
-        inputMemberData(&members[i]);
-        
-        int price = calculatePrice(members[i].premiumStatus);
-        saveMemberToFile(fp, members[i], price);
-        
-        printf("Record saved! Total Fee: Rs. %d\n", price);
+    for (i = 0; i < n; i++)
+    {
+        printf("\nMember %d\n", i + 1);
+
+        printf("Enter ID: ");
+        scanf("%d", &m[i].id);
+
+        printf("First Name: ");
+        scanf("%s", m[i].name.first);
+
+        printf("Last Name: ");
+        scanf("%s", m[i].name.last);
+
+        printf("Age: ");
+        scanf("%d", &m[i].age);
+
+        printf("Gender (M/F): ");
+        scanf(" %c", &m[i].gender);
+
+        printf("Plan (Weekly/Monthly/Yearly): ");
+        scanf("%s", m[i].plan);
+
+        printf("Premium (1=yes, 0=no): ");
+        scanf("%d", &m[i].premium);
+
+        printf("Join Date (YYYY MM DD): ");
+        scanf("%d %d %d",
+            &m[i].joinDate.year,
+            &m[i].joinDate.month,
+            &m[i].joinDate.day);
+
+        int fee = getFee(m[i].premium);
+
+        // Write to file
+        fprintf(fp, "%d\t%s %s\t%d\t%c\t%s\t%d\n",
+                m[i].id,
+                m[i].name.first,
+                m[i].name.last,
+                m[i].age,
+                m[i].gender,
+                m[i].plan,
+                fee);
+
+        printf("Saved! Fee = Rs. %d\n", fee);
     }
 
     fclose(fp);
-    printf("\nProcess complete. Data saved to 'members.txt'.\n");
+
+    printf("\nAll data saved in members.txt\n");
+
     return 0;
-}
-
-// Logic to determine price
-int calculatePrice(int premiumStatus) {
-    // Premium = Rs. 1500, Normal = Rs. 500
-    return (premiumStatus == 1) ? 1500 : 500;
-}
-
-// Function to handle the nested structure inputs
-void inputMemberData(struct Member *m) {
-    printf("Member ID: ");
-    scanf("%d", &m->memberID);
-
-    printf("First Name: ");
-    scanf("%s", m->name.firstName);
-    printf("Middle Name: ");
-    scanf("%s", m->name.middleName);
-    printf("Last Name: ");
-    scanf("%s", m->name.lastName);
-
-    printf("Age: ");
-    scanf("%d", &m->age);
-
-    printf("Gender (M/F): ");
-    scanf(" %c", &m->gender); // Space before %c skips trailing newlines
-
-    printf("Plan Type (Weekly/Monthly/Yearly): ");
-    scanf("%s", m->planType);
-
-    printf("Premium Status (1 for Premium, 0 for Normal): ");
-    scanf("%d", &m->premiumStatus);
-
-    printf("Join Date (YYYY MM DD): ");
-    scanf("%d %d %d", &m->date.year, &m->date.month, &m->date.day);
-}
-
-// Function to write structured data to text file
-void saveMemberToFile(FILE *fp, struct Member m, int price) {
-    fprintf(fp, "%d\t%s %s %s\t%d\t%c\t%s\t%d\t%04d-%02d-%02d\tRs.%d\n",
-            m.memberID,
-            m.name.firstName, m.name.middleName, m.name.lastName,
-            m.age,
-            m.gender,
-            m.planType,
-            m.premiumStatus,
-            m.date.year, m.date.month, m.date.day,
-            price);
 }

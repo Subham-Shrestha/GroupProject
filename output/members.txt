@@ -1,24 +1,26 @@
-1	Aashutosh	20	M	Monthly	1	2024	3	10
-2	Abhishek	21	M	Monthly	0	2024	6	11
-3	Akriti	19	F	Weekly	1	2024	8	12
-4	Amardip	22	M	Yearly	0	2023	5	13
-5	Ankit	20	M	Monthly	1	2024	11	14
-6	Arun	21	M	Weekly	0	2023	9	15
-7	Bikash	23	M	Monthly	1	2024	2	16
-8	Kabir	20	M	Monthly	0	2023	7	17
-9	Krish	22	M	Yearly	1	2024	12	18
-10	Kriti	19	F	Weekly	0	2025	2	19
-11	Kumari	21	F	Monthly	1	2024	4	20
-12	Lok	24	M	Yearly	0	2023	10	21
-13	Moon	22	M	Monthly	1	2024	1	22
-14	Prabesh	20	M	Weekly	0	2023	6	23
-15	Pranay	21	M	Weekly	1	2024	9	24
-16	Roshan	23	M	Yearly	0	2025	3	25
-17	Samik	22	M	Monthly	1	2024	5	26
-18	Sandip	20	M	Weekly	0	2023	12	27
-19	Shalinya	19	M	Monthly	1	2024	7	28
-20	Shreesha	21	F	Yearly	0	2023	11	29
-21	Sonish	22	M	Monthly	1	2025	1	5
-22	SUbham	23	M	Weekly	0	2024	2	1
-23	Surakshya	20	F	Monthly	1	2023	8	2
-24	Tanchhohang	22	M	Yearly	0	2024	3	3
+ID	Name		Age	Gen	Plan	Fee
+-------------------------------------------
+1	Aashutosh Adhikari	20	M	Monthly	1500
+2	Abhiskek Magar	21	M	Monthly	500
+3	Akriti KC	19	F	Weekly	1500
+4	Amardip Singh	22	M	Yearly	500
+5	Ankit Adhikari	20	M	Monthly	1500
+6	Arun Bohara	21	M	Weekly	500
+7	Bikash Thapa	23	M	Monthly	1500
+8	Kabir Kathayat	20	M	Monthly	500
+9	Krish Thapa	22	M	Yearly	1500
+10	Kriti Pandey	19	F	Weekly	500
+11	Kumari Hema	21	F	Monthly	1500
+12	Lok Kalouni	24	M	Yearly	500
+13	Moon Tandukar	22	M	Monthly	1500
+14	Prabesh Adhikari	20	M	Weekly	500
+15	Pranay Shrestha	21	M	Weekly	1500
+16	Roshan Shrestha	23	M	Yearly	500
+17	Samik Chauguthi	22	M	Monthly	1500
+18	Sandip Shah	20	M	Weekly	500
+19	Shalinya Gautam	19	M	Monthly	1500
+20	Shreesha Saud	21	F	Yearly	500
+21	Sonish Manandhar	22	M	Monthly	1500
+22	Subham Shrestha	23	M	Weekly	500
+23	Surakshya Poudel	20	F	Monthly	1500
+24	Tanchhohang Limbu	22	M	Yearly	500
