@@ -22,5 +22,5 @@ ID	Name		Age	Gen	Plan	Fee
 20	Shreesha Saud	21	F	Yearly	500
 21	Sonish Manandhar	22	M	Monthly	1500
 22	Subham Shrestha	23	M	Weekly	500
-23	Surakshya Poudel	20	F	Monthly	1500
+23	Surakshya Poudel	18	F	Monthly	1500
 24	Tanchhohang Limbu	22	M	Yearly	500
