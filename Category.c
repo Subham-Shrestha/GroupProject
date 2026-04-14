@@ -23,15 +23,15 @@ int main()
 
     // File header
     fprintf(temp, "Filtered Members (%s Plan)\n", selectedPlan);
-    fprintf(temp, "ID   Name                Age   Gender   Plan      Fee\n");
-    fprintf(temp, "------------------------------------------------------------\n");
+    fprintf(temp, "ID   |  Name                |   Age |  Gender |  Plan     | Fee\n");
+    fprintf(temp, "--------------------------------------------------------------------------------\n");
 
     // Terminal header
     printf("\n");
     printf("         MEMBERS WITH %s PLAN\n", selectedPlan);
-    printf("============================================================\n");
-    printf("ID   Name                Age   Gender   Plan      Fee\n");
-    printf("------------------------------------------------------------\n");
+    printf("=========================================================================\n");
+    printf("|| ID   |  Name                |   Age |  Gender |  Plan     | Fee     ||\n");
+    printf("-------------------------------------------------------------------------\n");
 
     // Ignore the header row and keep reading the datas.
     fgets(line, sizeof(line), fp);
@@ -58,7 +58,8 @@ int main()
             sprintf(fullName, "%s %s", first, last);
 
             // Output in terminal
-            printf("%-4d %-20s %-5d %-7c %-9s %-5d\n",
+            printf("|| ");
+            printf("%-4d | %-20s | %-5d | %-7c | %-9s | %-5d   ||\n",
                 id,
                 fullName,
                 age,
@@ -67,7 +68,7 @@ int main()
                 fee);
 
             // Store in file
-            fprintf(temp, "%-4d %-20s %-5d %-7c %-9s %-5d\n",
+            fprintf(temp, "%-4d | %-20s | %-5d | %-7c | %-9s | %-5d   ||\n",
                     id,
                     fullName,
                     age,
@@ -82,7 +83,7 @@ int main()
     fclose(fp);
     fclose(temp);
 
-    printf("===========================================================\n");
+    printf("=========================================================================\n");
     printf("Total Members Found: %d\n", count);
     return 0;
 }
