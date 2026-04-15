@@ -9,3 +9,9 @@
 //wap to take input for size of array and again take input value upto that number and find the smallest one
 //wap to input values and print the greatest one
 //wap to find the average of 8 numbers
+
+//wap to check the greatest string among 3 string
+//wap to count number of vovel in a given string
+//wap to input the string and count the number of space in it.
+//wap to check if a given string is palindrome or not
+//wap tp input name of 5 cities & display them

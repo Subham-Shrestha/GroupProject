@@ -1,0 +1,10 @@
+1 sura jhapa female 18
+2 kriti ktm female 17
+3 suraa pokhara female 12
+4 krishna morang male 45
+5 krish ktm male 23
+6 abishek ktm male 23
+7 akriti butwal female 12
+8 suraaa jhapa female 7
+9 prakriti illam female 19
+10 suraaa ktm female 20
