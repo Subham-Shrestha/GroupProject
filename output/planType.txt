@@ -1,10 +1,14 @@
-Filtered Members (Weekly Plan)
+Filtered Members (Monthly Plan)
 ID   |  Name                |   Age |  Gender |  Plan     | Fee
 --------------------------------------------------------------------------------
-3    | Akriti KC            | 19    | F       | Weekly    | 1500    ||
-6    | Arun Bohara          | 21    | M       | Weekly    | 500     ||
-10   | Kriti Pandey         | 19    | F       | Weekly    | 500     ||
-14   | Prabesh Adhikari     | 20    | M       | Weekly    | 500     ||
-15   | Pranay Shrestha      | 21    | M       | Weekly    | 1500    ||
-18   | Sandip Shah          | 20    | M       | Weekly    | 500     ||
-22   | Subham Shrestha      | 23    | M       | Weekly    | 500     ||
+1    | Aashutosh Adhikari   | 20    | M       | Monthly   | 1500    ||
+2    | Abhiskek Magar       | 21    | M       | Monthly   | 500     ||
+5    | Ankit Adhikari       | 20    | M       | Monthly   | 1500    ||
+7    | Bikash Thapa         | 23    | M       | Monthly   | 1500    ||
+8    | Kabir Kathayat       | 20    | M       | Monthly   | 500     ||
+11   | Kumari Hema          | 21    | F       | Monthly   | 1500    ||
+13   | Moon Tandukar        | 22    | M       | Monthly   | 1500    ||
+17   | Samik Chauguthi      | 22    | M       | Monthly   | 1500    ||
+19   | Shalinya Gautam      | 19    | M       | Monthly   | 1500    ||
+21   | Sonish Manandhar     | 22    | M       | Monthly   | 1500    ||
+23   | Surakshya Poudel     | 18    | F       | Monthly   | 1500    ||

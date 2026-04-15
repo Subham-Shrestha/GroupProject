@@ -1,48 +1,129 @@
 #include <stdio.h>
 #include <string.h>
+
 int main()
- {
-    FILE *fp;
-    char name[50], oldest_name[50], youngest_name[50];
-    int age;
+{
+    FILE *fp, *temp;
+    char line[200];
+
+    int count = 0;
 
     fp = fopen("members.txt", "r");
+    temp = fopen("ageCategory.txt", "w");
 
-    if (fp == NULL) 
-	{
-        printf("Error opening file!\n");
+    if (fp == NULL || temp == NULL)
+    {
+        printf("File error!\n");
         return 1;
     }
 
-    
-    // Read first record
-    fscanf(fp, "%s %d", name, &age);
+    int max_age = -1, min_age = 999;
+    char oldest_name[50], youngest_name[50];
 
-    int max_age = age;
-    int min_age = age;
+    // File header
+    fprintf(temp, "Oldest and Youngest Members\n");
+    fprintf(temp, "ID   |  Name                |   Age |  Gender |  Plan     | Fee\n");
+    fprintf(temp, "--------------------------------------------------------------------------------\n");
 
-    strcpy(oldest_name, name);
-    strcpy(youngest_name, name);
+    // Terminal header
+    printf("\n");
+    printf("         MEMBER AGE ANALYSIS\n");
+    printf("=========================================================================\n");
+    printf("|| ID   |  Name                |   Age |  Gender |  Plan     | Fee     ||\n");
+    printf("-------------------------------------------------------------------------\n");
 
-    // Read remaining records
-    while (fscanf(fp, "%s %d", name, &age) == 2) 
-      {
+    // Skip header lines
+    fgets(line, sizeof(line), fp);
+    fgets(line, sizeof(line), fp);
 
-        if (age > max_age) {
+    int oldest_id, youngest_id;
+    int oldest_fee, youngest_fee;
+    char oldest_gender, youngest_gender;
+    char oldest_plan[10], youngest_plan[10];
+
+    while (fgets(line, sizeof(line), fp) != NULL)
+    {
+        int id, age, fee;
+        char first[20], last[20], gender;
+        char plan[10];
+
+        sscanf(line, "%d %s %s %d %c %s %d",
+               &id,
+               first,
+               last,
+               &age,
+               &gender,
+               plan,
+               &fee);
+
+        char fullName[50];
+        sprintf(fullName, "%s %s", first, last);
+
+        // Check for oldest
+        if (age > max_age)
+        {
             max_age = age;
-            strcpy(oldest_name, name);
+            strcpy(oldest_name, fullName);
+            oldest_id = id;
+            oldest_fee = fee;
+            oldest_gender = gender;
+            strcpy(oldest_plan, plan);
         }
 
-        if (age < min_age) {
+        // Check for youngest
+        if (age < min_age)
+        {
             min_age = age;
-            strcpy(youngest_name, name);
+            strcpy(youngest_name, fullName);
+            youngest_id = id;
+            youngest_fee = fee;
+            youngest_gender = gender;
+            strcpy(youngest_plan, plan);
         }
     }
 
-    fclose(fp);
+    // Print oldest
+    printf("|| %-4d | %-20s | %-5d | %-7c | %-9s | %-5d   ||\n",
+           oldest_id,
+           oldest_name,
+           max_age,
+           oldest_gender,
+           oldest_plan,
+           oldest_fee);
 
-    printf("Oldest Member: %s (%d years)\n", oldest_name, max_age);
-    printf("Youngest Member: %s (%d years)\n", youngest_name, min_age);
+    // Save oldest
+    fprintf(temp, "Oldest Member:\n");
+    fprintf(temp, "%-4d | %-20s | %-5d | %-7c | %-9s | %-5d   ||\n\n",
+            oldest_id,
+            oldest_name,
+            max_age,
+            oldest_gender,
+            oldest_plan,
+            oldest_fee);
+
+    // Print youngest
+    printf("|| %-4d | %-20s | %-5d | %-7c | %-9s | %-5d   ||\n",
+           youngest_id,
+           youngest_name,
+           min_age,
+           youngest_gender,
+           youngest_plan,
+           youngest_fee);
+
+    // Save youngest
+    fprintf(temp, "Youngest Member:\n");
+    fprintf(temp, "%-4d | %-20s | %-5d | %-7c | %-9s | %-5d   ||\n",
+            youngest_id,
+            youngest_name,
+            min_age,
+            youngest_gender,
+            youngest_plan,
+            youngest_fee);
+
+    fclose(fp);
+    fclose(temp);
+
+    printf("=========================================================================\n");
 
     return 0;
 }
