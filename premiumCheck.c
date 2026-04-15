@@ -1,55 +1,59 @@
-#include<stdio.h>
+#include <stdio.h>
+#include <string.h>
+
 int main()
 {
-    FILE *fp;
-    int countPremium = 0, countNormal = 0;
-    fp=fopen("members.txt","r");
-    if(fp==NULL)
-    {
-        printf("Error opening file!");
-        return 1;
-    }
-     
-    int id,age,fee;
-    char first[20],last[20],plan[10],gen;
+    FILE *fp, *out;
     char line[200];
 
-    printf("\n--- Premium Check ---\n\n");
+    fp = fopen("members.txt", "r");
+    out = fopen("premium.txt", "w");
 
-    while(fgets(line, sizeof(line), fp)!= NULL)
+    if (fp == NULL || out == NULL)
     {
-       sscanf(line, "%d %s %s %d %c %s %d",
-    &id,
-   first,
-   last,
-   &age,
-   &gen,
-   plan,
-   &fee);
-   if(strcmp(plan, "premium") == 0)
+        printf("Error opening file!\n");
+        return 1;
+    }
+
+    int id, age, fee;
+    char first[20], last[20], plan[10], gen;
+
+    // HEADER
+    printf("========== PREMIUM MEMBERS ==========\n");
+    printf("-------------------------------------------------------\n");
+    printf("|| ID  | Name                | Age | Gender | Fee    ||\n");
+    printf("-------------------------------------------------------\n");
+
+    fprintf(out, "========== PREMIUM MEMBERS ==========\n");
+    fprintf(out, "-------------------------------------------------------\n");
+    fprintf(out, "|| ID  | Name                | Age | Gender | Fee    ||\n");
+    fprintf(out, "-------------------------------------------------------\n");
+
+    while (fgets(line, sizeof(line), fp) != NULL)
     {
-        printf("Member ID: %d\n", id);
-        printf("Name: %s %s\n", first, last);
-        printf("Age: %d\n", age);
-        printf("Gender: %c\n", gen);
-        printf("Plan: %s\n", plan);
-        printf("Fee: %d\n", fee);
-        printf("--------------------\n");
-        countNormal++;
+        sscanf(line, "%d %s %s %d %c %s %d",
+               &id, first, last, &age, &gen, plan, &fee);
+
+        //  Filter using fee
+        if (fee == 1500)
+        {
+            char fullName[50];
+            sprintf(fullName, "%s %s", first, last);
+
+            // Print to terminal
+            printf("|| %-3d | %-19s | %-3d | %-6c | %-6d ||\n",
+                   id, fullName, age, gen, fee);
+            printf("-------------------------------------------------------\n");
+
+            // Write to file
+            fprintf(out, "|| %-3d | %-19s | %-3d | %-6c | %-6d ||\n",
+                    id, fullName, age, gen, fee);
+            fprintf(out, "-------------------------------------------------\n");
+        }
     }
-    else if(strcmp(plan, "normal") == 0)
-    {
-        printf("Member ID: %d\n", id);
-        printf("Name: %s %s\n", first, last);
-        printf("Age: %d\n", age);
-        printf("Gender: %c\n", gen);
-        printf("Plan: %s\n", plan);
-        printf("Fee: %d\n", fee);
-        printf("--------------------\n");
-        countPremium++;
-    }
-    }
-    printf("\n--- Summary ---\n");
-    printf("Number of Premium Members: %d\n", countPremium);
-    printf("Number of Normal Members: %d\n", countNormal);
+
+    fclose(fp);
+    fclose(out);
+
+    printf("\nData stored in premium.txt successfully.\n");
 }
