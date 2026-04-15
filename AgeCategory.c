@@ -20,15 +20,10 @@ int main()
     int max_age = -1, min_age = 999;
     char oldest_name[50], youngest_name[50];
 
-    // File header
-    fprintf(temp, "Oldest and Youngest Members\n");
-    fprintf(temp, "ID   |  Name                |   Age |  Gender |  Plan     | Fee\n");
-    fprintf(temp, "--------------------------------------------------------------------------------\n");
-
     // Terminal header
     printf("\n");
-    printf("         MEMBER AGE ANALYSIS\n");
-    printf("=========================================================================\n");
+    printf(" ====== MEMBER AGE ANALYSIS ======\n\n ");
+    printf("========================================================================\n");
     printf("|| ID   |  Name                |   Age |  Gender |  Plan     | Fee     ||\n");
     printf("-------------------------------------------------------------------------\n");
 
@@ -83,13 +78,14 @@ int main()
     }
 
     // Print oldest
+    printf("||      |  ====== Oldest Member ====== |         |           |         ||\n");
     printf("|| %-4d | %-20s | %-5d | %-7c | %-9s | %-5d   ||\n",
-        oldest_id,
-        oldest_name,
-        max_age,
-        oldest_gender,
-        oldest_plan,
-        oldest_fee);
+           oldest_id,
+           oldest_name,
+           max_age,
+           oldest_gender,
+           oldest_plan,
+           oldest_fee);
 
     // Save oldest
     fprintf(temp, "Oldest Member:\n");
@@ -102,13 +98,14 @@ int main()
             oldest_fee);
 
     // Print youngest
+    printf("||      |====== Youngest Member ====== |         |           |         ||\n");
     printf("|| %-4d | %-20s | %-5d | %-7c | %-9s | %-5d   ||\n",
-        youngest_id,
-        youngest_name,
-        min_age,
-        youngest_gender,
-        youngest_plan,
-        youngest_fee);
+           youngest_id,
+           youngest_name,
+           min_age,
+           youngest_gender,
+           youngest_plan,
+           youngest_fee);
 
     // Save youngest
     fprintf(temp, "Youngest Member:\n");
