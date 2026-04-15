@@ -1,10 +1,9 @@
-Filtered Members (Weekly Plan)
+Filtered Members (Yearly Plan)
 ID   |  Name                |   Age |  Gender |  Plan     | Fee
 --------------------------------------------------------------------------------
-3    | Akriti KC            | 19    | F       | Weekly    | 1500    ||
-6    | Arun Bohara          | 21    | M       | Weekly    | 500     ||
-10   | Kriti Pandey         | 19    | F       | Weekly    | 500     ||
-14   | Prabesh Adhikari     | 20    | M       | Weekly    | 500     ||
-15   | Pranay Shrestha      | 21    | M       | Weekly    | 1500    ||
-18   | Sandip Shah          | 20    | M       | Weekly    | 500     ||
-22   | Subham Shrestha      | 23    | M       | Weekly    | 500     ||
+4    | Amardip Singh        | 22    | M       | Yearly    | 500     ||
+9    | Krish Thapa          | 22    | M       | Yearly    | 1500    ||
+12   | Lok Kalouni          | 24    | M       | Yearly    | 500     ||
+16   | Roshan Shrestha      | 23    | M       | Yearly    | 500     ||
+20   | Shreesha Saud        | 21    | F       | Yearly    | 500     ||
+24   | Tanchhohang Limbu    | 22    | M       | Yearly    | 500     ||
