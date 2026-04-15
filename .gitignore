@@ -1,2 +1,24 @@
-/.dist
-/.vscode
+# macOS
+.DS_Store
+
+# Build outputs
+build/
+.dist/
+
+# Executables
+Category
+RecordsRead
+
+# Xcode / debug symbols
+*.dSYM/
+
+# Output folder generated files
+output/Category
+output/RecordsRead
+output/*.dSYM/
+output/.DS_Store
+
+# VS Code generated workspace files
+.vscode/build/
+.vscode/Test.c
+.vscode/tasks.json

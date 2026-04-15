@@ -1,0 +1,9 @@
+Filtered Members (Yearly Plan)
+ID   |  Name                |   Age |  Gender |  Plan     | Fee
+--------------------------------------------------------------------------------
+4    | Amardip Singh        | 22    | M       | Yearly    | 500     ||
+9    | Krish Thapa          | 22    | M       | Yearly    | 1500    ||
+12   | Lok Kalouni          | 24    | M       | Yearly    | 500     ||
+16   | Roshan Shrestha      | 23    | M       | Yearly    | 500     ||
+20   | Shreesha Saud        | 21    | F       | Yearly    | 500     ||
+24   | Tanchhohang Limbu    | 22    | M       | Yearly    | 500     ||
