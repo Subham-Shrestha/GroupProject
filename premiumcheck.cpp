@@ -7,11 +7,17 @@ int main()
     char line[200];
 
     fp = fopen("members.txt", "r");
-    out = fopen("premium.txt", "w");
-
-    if (fp == NULL || out == NULL)
+    if (fp == NULL)
     {
-        printf("Error opening file!\n");
+        fprintf(stderr, "Error opening input file: output/members.txt\n");
+        return 1;
+    }
+
+    out = fopen("premium.txt", "w");
+    if (out == NULL)
+    {
+        fprintf(stderr, "Error opening output file: output/premium.txt\n");
+        fclose(fp);
         return 1;
     }
 
@@ -29,33 +35,38 @@ int main()
     fprintf(out, "|| ID  | Name                | Age | Gender | Fee    ||\n");
     fprintf(out, "-------------------------------------------------------\n");
 
-while (fgets(line, sizeof(line), fp) != NULL)
+    while (fgets(line, sizeof(line), fp) != NULL)
     {
-        sscanf(line, "%d %s %s %d %c %s %d",
-               &id, first, last, &age, &gen, plan, &fee);
+        if (line[0] == '\0' || line[0] == '\n' || line[0] == '-' || strncmp(line, "ID", 2) == 0)
+        {
+            continue;
+        }
 
-        //  Filter using fee
+        if (sscanf(line, "%d %19s %19s %d %c %9s %d",
+                   &id, first, last, &age, &gen, plan, &fee) != 7)
+        {
+            continue;
+        }
+
         if (fee == 1500)
         {
             char fullName[50];
-            sprintf(fullName, "%s %s", first, last);
+            snprintf(fullName, sizeof(fullName), "%s %s", first, last);
 
-            // Print to terminal
             printf("|| %-3d | %-19s | %-3d | %-6c | %-6d ||\n",
                    id, fullName, age, gen, fee);
             printf("-------------------------------------------------------\n");
-            
-// Write to file
+
             fprintf(out, "|| %-3d | %-19s | %-3d | %-6c | %-6d ||\n",
                     id, fullName, age, gen, fee);
-            fprintf(out, "-------------------------------------------------\n");
+            fprintf(out, "-------------------------------------------------------\n");
         }
     }
 
     fclose(fp);
     fclose(out);
 
-    printf("\nData stored in premium.txt successfully.\n");
+    printf("\nData stored in output/premium.txt successfully.\n");
 
-
+    return 0;
 }
