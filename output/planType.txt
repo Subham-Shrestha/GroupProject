@@ -1,14 +1,14 @@
-Filtered Members (Monthly Plan)
-ID   |  Name                |   Age |  Gender |  Plan     | Fee
---------------------------------------------------------------------------------
-1    | Aashutosh Adhikari   | 20    | M       | Monthly   | 1500    ||
-2    | Abhiskek Magar       | 21    | M       | Monthly   | 500     ||
-5    | Ankit Adhikari       | 20    | M       | Monthly   | 1500    ||
-7    | Bikash Thapa         | 23    | M       | Monthly   | 1500    ||
-8    | Kabir Kathayat       | 20    | M       | Monthly   | 500     ||
-11   | Kumari Hema          | 21    | F       | Monthly   | 1500    ||
-13   | Moon Tandukar        | 22    | M       | Monthly   | 1500    ||
-17   | Samik Chauguthi      | 22    | M       | Monthly   | 1500    ||
-19   | Shalinya Gautam      | 19    | M       | Monthly   | 1500    ||
-21   | Sonish Manandhar     | 22    | M       | Monthly   | 1500    ||
-23   | Surakshya Poudel     | 18    | F       | Monthly   | 1500    ||
+
+
+         MEMBERS WITH Weekly PLAN
+┌──────┬──────────────────────┬─────┬────────┬──────────┬──────────┬────────────┐
+│ ID   │ Full Name            │ Age │ Gender │ Plan     │ Status   │ Join Date  │
+├──────┼──────────────────────┼─────┼────────┼──────────┼──────────┼────────────┤
+│ 3    │ Akriti KC            │ 19  │ Female │ Weekly   │ Premium  │ 2024-08-12 │
+│ 6    │ Arun Bohara          │ 21  │ Male   │ Weekly   │ Basic    │ 2023-09-15 │
+│ 10   │ Kriti Pandey         │ 19  │ Female │ Weekly   │ Basic    │ 2025-02-19 │
+│ 14   │ Prabesh Adhikari     │ 20  │ Male   │ Weekly   │ Basic    │ 2023-06-23 │
+│ 15   │ Pranay Shrestha      │ 21  │ Male   │ Weekly   │ Premium  │ 2024-09-24 │
+│ 18   │ Sandip Shah          │ 20  │ Male   │ Weekly   │ Basic    │ 2023-12-27 │
+│ 22   │ Subham Shrestha      │ 23  │ Male   │ Weekly   │ Basic    │ 2024-02-01 │
+└──────┴──────────────────────┴─────┴────────┴──────────┴──────────┴────────────┘
