@@ -1,8 +1,8 @@
-Oldest and Youngest Members
-ID   |  Name                |   Age |  Gender |  Plan     | Fee
---------------------------------------------------------------------------------
-Oldest Member:
-12   | Lok Kalouni          | 24    | M       | Yearly    | 500     ||
 
-Youngest Member:
-23   | Surakshya Poudel     | 18    | F       | Monthly   | 1500    ||
+         MEMBER AGE ANALYSIS
+┌──────┬──────────────────────┬─────┬────────┬──────────┬──────────┬────────────┐
+│ ID   │ Full Name            │ Age │ Gender │ Plan     │ Status   │ Join Date  │
+├──────┼──────────────────────┼─────┼────────┼──────────┼──────────┼────────────┤
+│ Oldest  │ Lok Kalouni          │ 24  │ Male   │ Yearly   │ Basic    │ 2023-10-21 │
+│ Youngest │ Akriti KC            │ 19  │ Female │ Weekly   │ Premium  │ 2024-08-12 │
+└──────┴──────────────────────┴─────┴────────┴──────────┴──────────┴────────────┘
