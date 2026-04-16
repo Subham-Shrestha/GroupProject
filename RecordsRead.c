@@ -12,27 +12,39 @@ int main()
         return 1;
     }
 
-    int id, age, fee;
-    char first[20], last[20], plan[10], gen;
+    int id, age;
+    int year, month, day; // NEW: date variables
+    char plan[20], gen[10];
     char line[200];
 
-    printf("\n--- Members Data ---\n\n");
+    printf("\n");
+    printf("┌──────┬──────────────────────┬─────┬────────┬──────────┬──────────┬────────────┐\n");
 
-    // Skip first 2 lines (header + dashed line)
+    // Skip first line (header)
     fgets(line, sizeof(line), fp);
-    fgets(line, sizeof(line), fp);
-    printf("==================================================================================\n");
-    // Print clean header. 
-    printf("|| %-3s | %-15s | %-15s | %-5s | %-5s | %-10s | %-5s ||\n", "ID", "First", "Last", "Age", "Gen", "Plan", "Fee"); //The numbers are written so that there will be fixed spacing between the columns for better reading of the file.
-    // Note : The numbers in spacing were given to match the space evenly to make the output seem clean. 
-    printf("----------------------------------------------------------------------------------\n");
 
-    // Read actual data
-    while (fscanf(fp, "%d %s %s %d %c %s %d", &id, first, last, &age, &gen, plan, &fee) != EOF)
+    // Updated header for CSV format
+    printf("│ %-4s │ %-20s │ %-3s │ %-6s │ %-8s │ %-8s │ %-10s │\n",
+           "ID", "Full Name", "Age", "Gender", "Plan", "Status", "Join Date");
+
+    printf("├──────┼──────────────────────┼─────┼────────┼──────────┼──────────┼────────────┤\n");
+
+    // Read actual data (handle CSV format with commas)
+    while (fgets(line, sizeof(line), fp) != NULL)
     {
-        printf("|| %-3d | %-15s | %-15s | %-5d | %-5c | %-10s | %-5d ||\n", id, first, last, age, gen, plan, fee);
+        char fullname[50], status[20], date[20];
+        if (sscanf(line, "%d,%49[^,],%d,%9[^,],%19[^,],%19[^,],%19s",
+                   &id, fullname, &age, gen, plan, status, date) == 7)
+        {
+            // Parse date
+            sscanf(date, "%d-%d-%d", &year, &month, &day);
+            printf("│ %-4d │ %-20s │ %-3d │ %-6s │ %-8s │ %-8s │ %04d-%02d-%02d │\n",
+                   id, fullname, age, gen, plan, status,
+                   year, month, day);
+        }
     }
-    printf("----------------------------------------------------------------------------------\n");
+
+    printf("└──────┴──────────────────────┴─────┴────────┴──────────┴──────────┴────────────┘\n");
 
     fclose(fp);
 
