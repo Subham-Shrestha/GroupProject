@@ -1,6 +1,6 @@
 ID    Name                      Age   Gen   Plan         Fee      Join Date   
 --------------------------------------------------------------------------
-1     Aashutosh Adhikari        20    M     Monthly      1500     2024-03-10
+1     Aashutosh Adhikari        20    M     Monthly      1500     2025-03-10
 2     Abhiskek Magar            21    M     Monthly      500      2024-06-11
 3     Akriti KC                 19    F     Weekly       1500     2024-08-12
 4     Amardip Singh             22    M     Yearly       500      2023-05-13
@@ -9,7 +9,7 @@ ID    Name                      Age   Gen   Plan         Fee      Join Date
 7     Bikash Thapa              23    M     Monthly      1500     2024-02-16
 8     Kabir Kathayat            20    M     Monthly      500      2023-07-17
 9     Krish Thapa               22    M     Yearly       1500     2024-12-18
-10    Kriti Pandey              19    F     Weekly       500      2025-02-19
+10    Kriti Pandey              19    F     Weekly       500      2024-02-19
 11    Kumari Hema               21    F     Monthly      1500     2024-04-20
 12    Lok Kalouni               24    M     Yearly       500      2023-10-21
 13    Moon Tandukar             22    M     Monthly      1500     2024-01-22
@@ -22,5 +22,5 @@ ID    Name                      Age   Gen   Plan         Fee      Join Date
 20    Shreesha Saud             21    F     Yearly       500      2023-11-29
 21    Sonish Manandhar          22    M     Monthly      1500     2025-01-05
 22    Subham Shrestha           23    M     Weekly       500      2024-02-01
-23    Surakshya Poudel          20    F     Monthly      1500     2023-08-02
+23    Surakshya Poudel          18    F     Monthly      1500     2025-08-02
 24    Tanchhohang Limbu         22    M     Yearly       500      2024-03-03
